@@ -1,0 +1,139 @@
+﻿<Window x:Class="Stoper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Stoper 67"
+        Height="620" Width="420"
+        MinHeight="520" MinWidth="380"
+        Background="{StaticResource BgBrush}"
+        Foreground="{StaticResource TextBrush}"
+        WindowStartupLocation="CenterScreen"
+        FontFamily="Segoe UI">
+    <Grid Margin="22">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="0,0,0,12">
+            <TextBlock Text="STOPER"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       Foreground="{StaticResource MutedBrush}"
+                       HorizontalAlignment="Center"
+                       Margin="0,4,0,6"/>
+            <Border Background="#555960"
+                    BorderBrush="{StaticResource BorderBrush}"
+                    BorderThickness="1"
+                    CornerRadius="8"
+                    Padding="14,6"
+                    HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="six seven"
+                               FontSize="13"
+                               Foreground="{StaticResource MutedBrush}"
+                               VerticalAlignment="Center"
+                               Margin="0,0,10,0"/>
+                    <TextBlock Text="67"
+                               FontSize="22"
+                               FontWeight="Bold"
+                               FontFamily="Consolas"
+                               Foreground="{StaticResource TextBrush}"
+                               VerticalAlignment="Center"/>
+                </StackPanel>
+            </Border>
+        </StackPanel>
+
+        <Border Grid.Row="1"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="16,22"
+                Margin="0,0,0,16">
+            <StackPanel>
+                <TextBlock x:Name="TimeLabel"
+                           Text="00:00:00.00"
+                           FontFamily="Consolas"
+                           FontSize="40"
+                           FontWeight="Bold"
+                           Foreground="{StaticResource TextBrush}"
+                           HorizontalAlignment="Center"/>
+                <TextBlock x:Name="StatusLabel"
+                           Text="Gotowy"
+                           FontSize="13"
+                           Foreground="{StaticResource MutedBrush}"
+                           HorizontalAlignment="Center"
+                           Margin="0,10,0,0"/>
+            </StackPanel>
+        </Border>
+
+        <Grid Grid.Row="2" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Button x:Name="StartButton"
+                    Content="Start"
+                    Click="StartButton_Click"
+                    ToolTip="Uruchamia stoper od zera"/>
+            <Button x:Name="PauseButton"
+                    Grid.Column="2"
+                    Content="Pauza"
+                    Click="PauseButton_Click"
+                    IsEnabled="False"
+                    ToolTip="Zatrzymuje lub wznawia pomiar"/>
+            <Button x:Name="FlagButton"
+                    Grid.Row="2"
+                    Content="Flaga"
+                    Click="FlagButton_Click"
+                    IsEnabled="False"
+                    Background="#555960"
+                    ToolTip="Zapisuje aktualny czas"/>
+            <Button x:Name="SixSevenButton"
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Content="67"
+                    Click="SixSevenButton_Click"
+                    Background="#555960"
+                    ToolTip="six seven"/>
+        </Grid>
+
+        <Border Grid.Row="3"
+                Background="{StaticResource PanelBrush}"
+                BorderBrush="{StaticResource BorderBrush}"
+                BorderThickness="1"
+                CornerRadius="12"
+                Padding="12">
+            <DockPanel>
+                <Grid DockPanel.Dock="Top" Margin="4,2,4,10">
+                    <TextBlock Text="Znaczniki"
+                               FontWeight="SemiBold"
+                               FontSize="14"
+                               Foreground="{StaticResource TextBrush}"/>
+                    <TextBlock x:Name="FlagCountLabel"
+                               Text="0"
+                               HorizontalAlignment="Right"
+                               Foreground="{StaticResource MutedBrush}"/>
+                </Grid>
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <StackPanel x:Name="FlagList">
+                        <TextBlock x:Name="EmptyFlagsLabel"
+                                   Text="Brak znaczników — naciśnij Flaga, aby zapisać czas."
+                                   TextWrapping="Wrap"
+                                   Foreground="{StaticResource MutedBrush}"
+                                   Margin="4,8"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </DockPanel>
+        </Border>
+    </Grid>
+</Window>
